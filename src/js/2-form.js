@@ -31,7 +31,7 @@ function populateForm() {
             formData.email = parsedData.email;
         };
         if (parsedData.message){
-            form.elements.message.value = savedData.message;
+            form.elements.message.value = parsedData.message;
             formData.message = parsedData.message;
         }
     }

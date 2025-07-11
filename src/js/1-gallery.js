@@ -69,7 +69,7 @@ const images = [
 const container = document.querySelector('.gallery');
 container.insertAdjacentHTML("beforeend", createMarkup(images));
 
-container.addEventListener("click", handleClick)
+
 
 function createMarkup(arr) {
   return arr.map(({ preview, original, description }) => `
@@ -85,43 +85,8 @@ function createMarkup(arr) {
   `).join("");
 };
 
-function handleClick(event) {
-    event.preventDefault();
-  const parent = event.target.closest(".gallery-item");
-  if (event.target.nodeName !== "IMG"){
-    return;
-    };
-     const itemSource = event.target.dataset.source;
-  if (!itemSource) {
-    return;
-  };
-
-  const image = images.find((item) => item.original === itemSource);
-  if (!image) {
-    return;
-  };
-
-  if (!image) {
-    return;
-  }; 
-
-    const instance = basicLightbox.create(`
-    <div class="modal">
-        <img 
-        src="${image.original}" 
-        alt="${image.description}"/>
-
-    </div>
-// `);
-  instance.show();
-  
-document.addEventListener("keydown", (e)=>
-{if (e.key ==="Escape"){
-    instance.close();
-}});
-};
-
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
+  captionPosition: 'bottom',
 });
