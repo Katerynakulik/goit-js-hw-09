@@ -112,7 +112,7 @@ function handleClick(event) {
         alt="${image.description}"/>
 
     </div>
-`);
+// `);
   instance.show();
   
 document.addEventListener("keydown", (e)=>
